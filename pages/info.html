@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Fakhreldin - Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="layout-container">
+        <div id="nav-placeholder"></div>
+
+        <main class="main-content">
+            <div id="canvas-container"></div>
+            
+            <div class="content-section active">
+                <div class="info-content">
+                    <section class="education">
+                        <h2>Certifications</h2>
+                        <div class="cert-section">
+                            <article class="cert-card" data-institution="udacity">
+                                <img src="https://cdn.worldvectorlogo.com/logos/udacity-2.svg" 
+                                     alt="Udacity" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>Foundation of Generative AI</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">Udacity</span>
+                                        <span class="cert-date">May 2024</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1YnjgwWWzvQ7j06DIJfUXtUmGguEld-ME/view" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="cert-card" data-institution="udacity">
+                                <img src="https://cdn.worldvectorlogo.com/logos/udacity-2.svg" 
+                                     alt="Udacity" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>Professional Frontend Development</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">Udacity</span>
+                                        <span class="cert-date">Dec 2022</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1yVjikd_sscKy8Wqj-TVzZaAREqE9uqdH/view" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="cert-card" data-institution="deeplearning">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1024px-Coursera-Logo_600x600.svg.png" 
+                                     alt="DeepLearning.AI" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>AI For Everyone</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">DeepLearning.AI</span>
+                                        <span class="cert-date">July 2021</span>
+                                    </div>
+                                    <a href="https://coursera.org/share/4a374363baa2b7239186d2f28338c41a" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="cert-card" data-institution="iti">
+                                <img src="../iti.svg" 
+                                     alt="ITI" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>MEAN Stack</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">ITI</span>
+                                        <span class="cert-date">Sept 2022</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1Qr0GP7mv--HBu-ozMLn7GBckaQr8OalO/view" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="cert-card" data-institution="ucsd">
+                                <img src="../University_of_California,_San_Diego-Logo.wine.svg" 
+                                     alt="UC San Diego" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>Algorithmic Toolbox</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">UC San Diego</span>
+                                        <span class="cert-date">Sept 2021</span>
+                                    </div>
+                                    <a href="https://coursera.org/share/6f3a7768b97e244a067b95fd25888c05" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+
+                            <article class="cert-card" data-institution="umich">
+                                <img src="../michigen.svg" 
+                                     alt="University of Michigan" class="institution-logo">
+                                <div class="cert-content">
+                                    <h3>Python for Everybody</h3>
+                                    <div class="cert-meta">
+                                        <span class="cert-provider">University of Michigan</span>
+                                        <span class="cert-date">Sept 2020</span>
+                                    </div>
+                                    <a href="https://coursera.org/share/e80649ceb8c14ae3085316a229af7361" 
+                                       class="cert-link" target="_blank">
+                                        View Credential
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="skills">
+                        <h2>Tech Stack</h2>
+                        <div class="tech-section">
+                            <div class="marquee-group">
+                                <div class="tech-marquee">
+                                    <div class="tech-items">
+                                        <span data-category="language">C#</span>
+                                        <span data-category="language">JavaScript</span>
+                                        <span data-category="language">Java</span>
+                                        <span data-category="language">Python</span>
+                                        <span data-category="language">TypeScript</span>
+                                        <span data-category="language">C++</span>
+                                        <span data-category="language">XML</span>
+                                        <span data-category="language">HTML</span>
+                                        <span data-category="language">CSS</span>
+                                        
+                                        <span data-category="framework">ASP.NET Core</span>
+                                        <span data-category="framework">EF Core</span>
+                                        <span data-category="framework">Angular</span>
+                                        <span data-category="framework">Git</span>
+                                        <span data-category="framework">NodeJS</span>
+                                        <span data-category="framework">Express</span>
+                                        <span data-category="framework">Apache Spark</span>
+                                        <span data-category="framework">VS Code</span>
+                                        
+                                        <span data-category="database">SQL</span>
+                                        <span data-category="database">DBMS</span>
+                                        <span data-category="database">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/background.js"></script>
+    <script src="../js/common.js"></script>
+</body>
+</html>

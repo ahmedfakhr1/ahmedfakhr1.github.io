@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Fakhreldin - Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="layout-container">
+        <div id="nav-placeholder"></div>
+
+        <main class="main-content">
+            <div id="canvas-container"></div>
+            
+            <div class="content-section active">
+                <div class="projects-grid">
+                    <!-- Projects content -->
+                    <article class="project-card" data-project="smart-exam">
+                        <div class="project-header">
+                            <h3>Smart Examination System</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">Angular • NodeJS • MongoDB • Express • TypeScript</div>
+                            <p>An intelligent examination system with automated question generation.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="retoucher">
+                        <div class="project-header">
+                            <h3>Retoucher Website Gallery</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">Angular • TypeScript • JavaScript • HTML • CSS</div>
+                            <p>A dynamic image gallery for a professional retoucher.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="xml-editor">
+                        <div class="project-header">
+                            <h3>XML Desktop Program</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">C++</div>
+                            <p>A robust XML editor with JSON conversion capabilities.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="cpu-scheduler">
+                        <div class="project-header">
+                            <h3>CPU Scheduler Simulator</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">Java</div>
+                            <p>A simulation of various CPU scheduling algorithms with visual representation.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="othello">
+                        <div class="project-header">
+                            <h3>Othello AI Player</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">Python • Min-max Algorithm • PyGame</div>
+                            <p>An AI-powered Othello game using minimax algorithm with alpha-beta pruning.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="weather">
+                        <div class="project-header">
+                            <h3>Weather App</h3>
+                            <button class="view-project">View Project →</button>
+                        </div>
+                        <div class="project-preview">
+                            <div class="tech-stack">JavaScript • HTML • CSS</div>
+                            <p>A real-time weather application using Open Weather Map API.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Project Detail Views -->
+                <div class="project-detail-container">
+                    <div class="project-detail" id="smart-exam-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>Smart Examination System</h2>
+                        <div class="tech-stack">Angular • NodeJS • MongoDB • Express • TypeScript</div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/smart-exam" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Developed intuitive UI for users aged 8-80</li>
+                            <li>Architected system with optimized database design</li>
+                            <li>Integrated ML algorithms for automated question generation (5 types)</li>
+                            <li>Authored IEEE-standard review paper on English question generation</li>
+                            <li>Managed project lifecycle using Agile methodology (30% faster delivery)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-detail" id="retoucher-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>Retoucher Website Gallery</h2>
+                        <div class="tech-stack">Angular • TypeScript • JavaScript • HTML • CSS</div>
+                        <div class="project-links">
+                            <a href="https://github.com/yourusername/retoucher-gallery" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Increased client inquiries by 25% within 3 months</li>
+                            <li>Created responsive image gallery with dynamic category filtering</li>
+                            <li>Optimized UX through navigation-driven content updates</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-detail" id="xml-editor-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>XML Desktop Program</h2>
+                        <div class="tech-stack">C++</div>
+                        <div class="project-links">
+                            <a href="https://github.com/MedoGhoz/data-structures-project" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Engineered robust XML editor with XML-to-JSON conversion</li>
+                            <li>Implemented file prettification with proper indentation</li>
+                            <li>Developed error detection and correction system</li>
+                            <li>Optimized pretification algorithms for efficiency</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-detail" id="cpu-scheduler-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>CPU Scheduler Simulator</h2>
+                        <div class="tech-stack">Java</div>
+                        <div class="project-links">
+                            <a href="https://github.com/ali-alzaiat/CPU-Scheduler" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Simulated 4 scheduling algorithms: FCFS, SJF, Priority-based, Round-Robin</li>
+                            <li>Developed visual representation of scheduling process</li>
+                            <li>Implemented performance metrics comparison</li>
+                            <li>Conducted rigorous testing for algorithm validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-detail" id="othello-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>Othello AI Player</h2>
+                        <div class="tech-stack">Python • Min-max Algorithm • PyGame</div>
+                        <div class="project-links">
+                            <a href="https://github.com/MedoGhoz/Othello-AI-Player" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Implemented Min-max algorithm with alpha-beta pruning</li>
+                            <li>Developed predictive model analyzing 100+ moves</li>
+                            <li>Created heuristic evaluation function for board positions</li>
+                            <li>Designed PyGame interface for human-AI interaction</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-detail" id="weather-detail">
+                        <button class="back-to-projects">← Back to Projects</button>
+                        <h2>Weather App</h2>
+                        <div class="tech-stack">JavaScript • HTML • CSS</div>
+                        <div class="project-links">
+                            <a href="https://github.com/ahmedfakhr1/Weather-App-Udacity" class="github-link" target="_blank">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Integrated Open Weather Map API for real-time data</li>
+                            <li>Implemented asynchronous data fetching</li>
+                            <li>Created dynamic UI updates based on user input</li>
+                            <li>Added localStorage for user preferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/background.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/projects.js"></script>
+</body>
+</html>
