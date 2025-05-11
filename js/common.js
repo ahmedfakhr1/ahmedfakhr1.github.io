@@ -1,27 +1,4 @@
 // Common functionality for all pages
-const initTheme = () => {
-    const themeBtns = document.querySelectorAll('.theme-btn');
-    const root = document.documentElement;
-    
-    // Use requestAnimationFrame for theme changes
-    const updateTheme = (theme) => {
-        requestAnimationFrame(() => {
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            
-            themeBtns.forEach(b => b.classList.remove('active'));
-            document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
-        });
-    };
-    
-    themeBtns.forEach(btn => {
-        btn.addEventListener('click', () => updateTheme(btn.dataset.theme));
-    });
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    updateTheme(savedTheme);
-};
 
 // Load navigation component with caching
 const loadNavigation = (() => {
@@ -32,7 +9,6 @@ const loadNavigation = (() => {
             const navPlaceholder = document.getElementById('nav-placeholder');
             if (navPlaceholder) {
                 navPlaceholder.innerHTML = cachedNavigation;
-                initTheme();
                 highlightCurrentPage();
                 initSidebarToggle(); // <-- Move here
             }
@@ -46,7 +22,6 @@ const loadNavigation = (() => {
                 const navPlaceholder = document.getElementById('nav-placeholder');
                 if (navPlaceholder) {
                     navPlaceholder.innerHTML = data;
-                    initTheme();
                     highlightCurrentPage();
                     initSidebarToggle(); // <-- Move here
                 }

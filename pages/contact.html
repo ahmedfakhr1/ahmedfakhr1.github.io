@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../profile.JPG">
 </head>
 <body>
     <div class="layout-container">
         <div id="nav-placeholder"></div>
 
         <main class="main-content">
-            <div id="canvas-container"></div>
+            <div id="canvas-container">
+                <canvas id="background-canvas"></canvas>
+            </div>
             
             <div class="content-section active">
                 <div class="contact-content">
@@ -39,7 +42,7 @@
             </div>
         </main>
     </div>
-    <script src="../js/background.js"></script>
+    <script src="../js/background.js" type="module"></script>
     <script src="../js/common.js"></script>
 </body>
 </html>

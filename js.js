@@ -87,13 +87,6 @@ document.querySelectorAll('a, button, .project-header').forEach(element => {
   });
 });
 
-// Theme Switching
-const initTheme = () => {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    document.querySelector(`[data-theme="${theme}"]`).classList.add('active');
-};
-
 // Mouse tracking for project card hover effects
 const handleMouseMove = (e) => {
     document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -268,26 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
-    // Theme switching
-    const themeBtns = document.querySelectorAll('.theme-btn');
-    const root = document.documentElement;
-
-    themeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const theme = btn.dataset.theme;
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            
-            themeBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        });
-    });
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', savedTheme);
-    document.querySelector(`[data-theme="${savedTheme}"]`).classList.add('active');
 
     // Tech stack marquee pause on hover
     document.querySelectorAll('.tech-marquee').forEach(marquee => {
