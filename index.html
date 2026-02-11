@@ -263,16 +263,23 @@
         const Projects = () => {
             const projects = [
                 {
+                    title: "Bank Al-Bilad Middleware Modernization",
+                    desc: "Led comprehensive modernization of legacy IBM App Connect Enterprise (ACE) services within Cloud Pak for Integration (CP4I). Transformed monolithic integration flows into modular, service-oriented components deployed on OpenShift Container Platform. Designed RESTful APIs and message-driven integrations supporting critical banking operations including payment processing and account management. Enhanced middleware performance through refactored integration flows and monitoring frameworks, delivering measurable transaction performance improvements.",
+                    tags: ["IBM App Connect Enterprise", "CP4I", "OpenShift", "Kubernetes", "REST API", "IBM API Connect"],
+                    link: "#",
+                    highlight: true
+                },
+                {
                     title: "APIC Deployment Automation",
                     desc: "Enterprise automation tool that synchronizes API definitions with IBM API Connect. Handles creation, updates, and publishing in a unified workflow.",
-                    tags: ["Bash", "IBM CLI", "Python", "Git"],
+                    tags: ["Bash Scripting", "IBM API Connect CLI", "Python", "Git"],
                     link: "https://github.com/ahmedfakhr-su/APIC-Script",
                     highlight: true
                 },
                 {
                     title: "CPU Scheduler Simulator",
                     desc: "Java-based simulator for CPU scheduling algorithms (FCFS, SJF, Round-Robin) with visual representation of process execution.",
-                    tags: ["Java", "Swing", "Algorithms"],
+                    tags: ["Java", "Algorithms"],
                     link: "https://github.com/ali-alzaiat/CPU-Scheduler",
                     highlight: true
                 },
@@ -347,9 +354,9 @@
         const Skills = () => {
             const skillSets = [
                 { cat: "Integration & Cloud", list: "IBM API Connect, CP4I, ACE/IIB, REST, OpenAPI, Docker, OpenShift, Kubernetes" },
-                { cat: "Backend & Core", list: "Java, C++, C#, Python, NodeJS, ASP.NET Core" },
+                { cat: "Backend & Core", list: "Java, C++, C#, Python, NodeJS, ASP.NET Core, ReactJS" },
                 { cat: "Scripting & Auto", list: "Bash Shell, Python Scripting, yq/jq, Git, CI/CD" },
-                { cat: "Data", list: "SQL, MongoDB, XML, JSON, YAML" }
+                { cat: "Data", list: "SQL, MongoDB, XML, JSON" }
             ];
 
             return (
@@ -404,7 +411,7 @@
                         </div>
 
                         <footer className="mt-20 pt-8 border-t border-border/50 text-xs text-text-dim code-font">
-                            © 2026 Ahmed Fakhreldin. Designed with <span className="text-accent">♥</span> & Code.
+                            © 2026 Ahmed Fakhreldin. Designed with <span className="text-accent">♥</span>.
                         </footer>
                     </div>
                 </section>
