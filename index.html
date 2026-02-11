@@ -1,42 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Fakhreldin - Portfolio</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1918'/><text x='50' y='55' font-family='serif' font-weight='bold' font-size='50' fill='%23d97706' text-anchor='middle' dominant-baseline='central'>AF.</text></svg>">
+    <title>Ahmed Fakhreldin - Associate Integration Engineer</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: {
+                            DEFAULT: '#1a1918',
+                            secondary: '#232120',
+                            tertiary: '#2d2b29'
+                        },
+                        text: {
+                            DEFAULT: '#e8e6e3',
+                            muted: '#a8a6a3',
+                            dim: '#666462'
+                        },
+                        accent: {
+                            DEFAULT: '#d97706', // Warm Amber
+                            light: '#f59e0b',
+                            dim: '#92400e'
+                        },
+                        border: {
+                            DEFAULT: '#44403c'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- React and ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- Babel Standalone -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            overflow: hidden;
+            background-color: #1a1918;
+            color: #e8e6e3;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+
+        /* Vintage Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1918;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #44403c;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+
+        .heading-serif {
+            font-family: 'Lora', serif;
+        }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Compact Layout Tweaks */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #44403c, transparent);
+            margin: 0 auto;
+            width: 80%;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                window.location.href = 'pages/home.html';
-            }, 3000); // Redirect after 3 seconds
-        });
-    </script>
 </head>
-<body>
-    <div class="fade-in">
-        <h1>Ahmed Fakhreldin</h1>
-        <p>Portfolio</p>
-    </div>
+
+<body class="bg-bg text-text relative min-h-screen">
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Icon Component
+        const Icon = ({ name, size = 18, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            }, []);
+            return <i data-lucide={name} className={`inline-block align-text-bottom ${className}`} style={{ width: size, height: size }}></i>;
+        };
+
+        // Header / Navigation
+        const Navigation = () => {
+            return (
+                <nav className="border-b border-border bg-bg/95 backdrop-blur-sm sticky top-0 z-50">
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+                        <div className="text-sm font-semibold tracking-wider heading-serif text-accent">
+                            AF.
+                        </div>
+
+                        <div className="flex items-center gap-6 text-sm code-font text-text-muted">
+                            <a href="#about" className="hover:text-text transition-colors">/about</a>
+                            <a href="#projects" className="hover:text-text transition-colors">/projects</a>
+                            <a href="#skills" className="hover:text-text transition-colors">/skills</a>
+                            <a href="#contact" className="hover:text-text transition-colors">/contact</a>
+                        </div>
+                    </div>
+                </nav>
+            );
+        };
+
+        // Hero Section - Compact & Personal
+        const Hero = () => {
+            return (
+                <section className="pt-20 pb-16 px-4">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="border border-border p-8 md:p-12 relative bg-bg-secondary animate-fade-in">
+                            {/* Decorative corner accents */}
+                            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-accent"></div>
+                            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-accent"></div>
+                            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-accent"></div>
+                            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-accent"></div>
+
+                            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                                <div>
+                                    <h1 className="text-4xl md:text-5xl heading-serif font-medium mb-4 text-text">
+                                        Ahmed Fakhreldin
+                                    </h1>
+                                    <p className="code-font text-accent mb-6">Associate Integration Engineer</p>
+                                    <p className="text-text-muted max-w-xl leading-relaxed text-sm md:text-base">
+                                        Cairo-based engineer specialized in reliable backend systems, integrationions, automation workflows, and enterprise APIs.
+                                        I build the invisible bridges that make software work together.
+                                    </p>
+                                </div>
+                                <div className="flex flex-col gap-3 min-w-[160px]">
+                                    <a
+                                        href="cv.pdf"
+                                        download="Ahmed-Fakhreldin-CV.pdf"
+                                        className="group bg-text text-bg px-4 py-2 text-sm font-medium hover:bg-accent hover:text-white transition-colors text-center"
+                                    >
+                                        Download CV <span className="inline-block transition-transform group-hover:translate-y-0.5">↓</span>
+                                    </a>
+                                    <a
+                                        href="#contact"
+                                        className="border border-border text-text-muted px-4 py-2 text-sm text-center hover:border-accent hover:text-accent transition-colors"
+                                    >
+                                        Get in Touch
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // About Section
+        const About = () => {
+            return (
+                <section id="about" className="py-12 px-4">
+                    <div className="max-w-5xl mx-auto flex flex-col md:grid md:grid-cols-12 gap-12">
+                        <div className="md:col-span-4">
+                            <h2 className="heading-serif text-2xl mb-4 text-text flex items-center gap-2">
+                                <span className="w-8 h-px bg-accent inline-block"></span>
+                                About
+                            </h2>
+                        </div>
+                        <div className="md:col-span-8 text-text-muted leading-relaxed space-y-4 text-sm md:text-base border-l border-border pl-6 md:pl-8">
+                            <p>
+                                <span className="text-text font-medium">Born in 2000, Cairo.</span> I believe software development should be purposeful and empowering.
+                                My journey is driven by a mission to grow through faith, perseverance, and continuous learning.
+                            </p>
+                            <p>
+                                Currently, I focus on <span className="text-accent-light">Backend Development</span> and <span className="text-accent-light">Integration Engineering</span>.
+                                I enjoy dissecting complex systems, automating tedious workflows with Bash/Python, and architecting robust APIs using IBM technologies.
+                            </p>
+                            <div className="pt-4 grid grid-cols-2 gap-4 code-font text-xs text-text-dim">
+                                <div>
+                                    <div className="mb-1 text-accent">LOCATION</div>
+                                    Cairo, Egypt
+                                </div>
+                                <div>
+                                    <div className="mb-1 text-accent">FOCUS</div>
+                                    Backend & Integration
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Projects Section
+        const Projects = () => {
+            const projects = [
+                {
+                    title: "APIC Deployment Automation",
+                    desc: "Enterprise automation tool that synchronizes API definitions with IBM API Connect. Handles creation, updates, and publishing in a unified workflow.",
+                    tags: ["Bash", "IBM CLI", "Python", "Git"],
+                    link: "https://github.com/ahmedfakhr-su/APIC-Script",
+                    highlight: true
+                },
+                {
+                    title: "CPU Scheduler Simulator",
+                    desc: "Java-based simulator for CPU scheduling algorithms (FCFS, SJF, Round-Robin) with visual representation of process execution.",
+                    tags: ["Java", "Swing", "Algorithms"],
+                    link: "https://github.com/ali-alzaiat/CPU-Scheduler",
+                    highlight: true
+                },
+                {
+                    title: "Smart Exam System",
+                    desc: "Intelligent examination platform with automated question generation using Machine Learning algorithms.",
+                    tags: ["NodeJS", "MongoDB", "Angular"],
+                    link: "https://github.com/MedoGhoz/English-Examination-System"
+                },
+                {
+                    title: "XML Desktop Editor",
+                    desc: "Robust C++ XML editor featuring validation, formatting, and XML-to-JSON conversion algorithms.",
+                    tags: ["C++", "Data Structures"],
+                    link: "https://github.com/MedoGhoz/data-structures-project"
+                },
+                {
+                    title: "Othello AI Player",
+                    desc: "Strategic game AI using Minimax algorithm with Alpha-Beta pruning for optimal move prediction.",
+                    tags: ["Python", "AI", "PyGame"],
+                    link: "https://github.com/MedoGhoz/Othello-AI-Player"
+                },
+                {
+                    title: "Weather App",
+                    desc: "Real-time weather application connecting to OpenWeatherMap API for live data forecasting.",
+                    tags: ["JS", "API Integration"],
+                    link: "https://github.com/ahmedfakhr1/Weather-App-Udacity"
+                }
+
+            ];
+
+            return (
+                <section id="projects" className="py-12 px-4 bg-bg-secondary/30">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="flex items-end justify-between mb-8 border-b border-border pb-4">
+                            <h2 className="heading-serif text-2xl text-text">Selected Works</h2>
+                            <span className="code-font text-xs text-text-dim">01 — 06</span>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {projects.map((p, i) => (
+                                <a
+                                    href={p.link}
+                                    target="_blank"
+                                    key={i}
+                                    className={`group block p-6 border ${p.highlight ? 'border-accent/40 bg-accent/5' : 'border-border bg-bg-secondary'} hover:border-accent transition-all hover:translate-y-[-2px]`}
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        <h3 className={`text-lg font-medium ${p.highlight ? 'text-accent-light' : 'text-text'} group-hover:text-accent font-mono`}>
+                                            {p.title}
+                                        </h3>
+                                        <Icon name="arrow-up-right" size={16} className="text-text-dim group-hover:text-accent" />
+                                    </div>
+                                    <p className="text-sm text-text-muted mb-6 leading-relaxed">
+                                        {p.desc}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        {p.tags.map((tag, t) => (
+                                            <span key={t} className="text-xs code-font px-2 py-1 bg-bg border border-border text-text-dim rounded-sm">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Skills Section - Compact Table Style
+        const Skills = () => {
+            const skillSets = [
+                { cat: "Integration & Cloud", list: "IBM API Connect, CP4I, ACE/IIB, REST, OpenAPI, Docker, OpenShift, Kubernetes" },
+                { cat: "Backend & Core", list: "Java, C++, C#, Python, NodeJS, ASP.NET Core" },
+                { cat: "Scripting & Auto", list: "Bash Shell, Python Scripting, yq/jq, Git, CI/CD" },
+                { cat: "Data", list: "SQL, MongoDB, XML, JSON, YAML" }
+            ];
+
+            return (
+                <section id="skills" className="py-12 px-4">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+                            <div className="md:col-span-4">
+                                <h2 className="heading-serif text-2xl mb-4 text-text flex items-center gap-2">
+                                    <span className="w-8 h-px bg-accent inline-block"></span>
+                                    Technical Skills
+                                </h2>
+                            </div>
+                            <div className="md:col-span-8">
+                                <div className="border border-border divide-y divide-border bg-bg-secondary">
+                                    {skillSets.map((s, i) => (
+                                        <div key={i} className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                            <div className="text-xs tracking-wider uppercase text-text-dim code-font pt-1">{s.cat}</div>
+                                            <div className="col-span-2 text-sm text-text-muted font-mono">{s.list}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        // Contact Section
+        const Contact = () => {
+            return (
+                <section id="contact" className="py-20 px-4">
+                    <div className="max-w-5xl mx-auto text-center">
+                        <h2 className="heading-serif text-3xl text-text mb-6">Start a conversation</h2>
+                        <p className="text-text-muted mb-8 max-w-lg mx-auto leading-relaxed text-sm">
+                            I'm currently open for new opportunities in Integration Engineering and Backend Development.
+                        </p>
+
+                        <div className="flex justify-center gap-6">
+                            <a href="mailto:ahmedfakhr59@gmail.com" className="flex items-center gap-2 text-text hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-1">
+                                <Icon name="mail" size={18} />
+                                <span className="code-font text-sm">ahmedfakhr59@gmail.com</span>
+                            </a>
+                            <a href="https://github.com/ahmedfakhr1" target="_blank" className="flex items-center gap-2 text-text hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-1">
+                                <Icon name="github" size={18} />
+                                <span className="code-font text-sm">GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ahmed-fakhreldin/" target="_blank" className="flex items-center gap-2 text-text hover:text-accent transition-colors border-b border-transparent hover:border-accent pb-1">
+                                <Icon name="linkedin" size={18} />
+                                <span className="code-font text-sm">LinkedIn</span>
+                            </a>
+                        </div>
+
+                        <footer className="mt-20 pt-8 border-t border-border/50 text-xs text-text-dim code-font">
+                            © 2026 Ahmed Fakhreldin. Designed with <span className="text-accent">♥</span> & Code.
+                        </footer>
+                    </div>
+                </section>
+            );
+        };
+
+        const App = () => {
+            return (
+                <>
+                    <Navigation />
+                    <Hero />
+                    <div className="section-divider"></div>
+                    <About />
+                    <Projects />
+                    <Skills />
+                    <div className="section-divider"></div>
+                    <Contact />
+                </>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
+
 </html>
