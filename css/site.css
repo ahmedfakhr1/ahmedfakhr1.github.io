@@ -132,7 +132,14 @@ a { color: inherit; }
 .f-lines .f-pulse { stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 5 95; stroke-dashoffset: 100; animation: f-run 2.6s linear infinite; }
 .f-pulse.p1 { animation-delay: -0.9s; }
 .f-pulse.p2 { animation-delay: -1.7s; }
-.f-pulse.p3 { animation-duration: 1.3s; stroke-dasharray: 12 88; }
+.f-pulse.q0 { animation-delay: -1.3s; }
+.f-pulse.q1 { animation-delay: -2.2s; }
+.f-pulse.q2 { animation-delay: -0.4s; }
+.f-out circle { animation: f-got 2.6s linear infinite; }
+.f-out.o0 circle { animation-delay: -1.3s; }
+.f-out.o1 circle { animation-delay: -2.2s; }
+.f-out.o2 circle { animation-delay: -0.4s; }
+@keyframes f-got { 0%, 88% { fill: var(--mute); } 94%, 100% { fill: var(--accent); } }
 .f-node rect { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
 .f-node circle { fill: var(--mute); }
 .f-hub circle { fill: var(--ink); }
