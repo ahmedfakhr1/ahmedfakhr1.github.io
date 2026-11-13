@@ -117,6 +117,51 @@ a { color: inherit; }
 .hero p { margin-top: clamp(20px, 3vh, 32px); max-width: 34em; font-size: clamp(1.0625rem, 1.5vw, 1.3125rem); line-height: 1.5; color: var(--mute); }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(28px, 4vh, 40px); }
 
+/* Home hero: systems flow through one point and become a page */
+.hero-home { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 5vw, 56px); align-items: center; }
+.hero-home .hero-text { display: contents; }
+.hero-home h1 { order: 1; }
+.hero-home .stage { order: 2; }
+.hero-home p { order: 3; margin-top: 0; }
+.hero-home .cta { order: 4; margin-top: 0; }
+.hero-home > .hero-text > * { min-width: 0; }
+.stage { width: 100%; max-width: 620px; }
+.flow { display: block; width: 100%; height: auto; overflow: visible; }
+.flow text { font: 500 21px 'Geist', ui-sans-serif, system-ui, sans-serif; fill: var(--ink); letter-spacing: -0.01em; }
+.f-lines path { fill: none; stroke: var(--line); stroke-width: 2; }
+.f-lines .f-pulse { stroke: var(--accent); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 5 95; stroke-dashoffset: 100; animation: f-run 2.6s linear infinite; }
+.f-pulse.p1 { animation-delay: -0.9s; }
+.f-pulse.p2 { animation-delay: -1.7s; }
+.f-pulse.p3 { animation-duration: 1.3s; stroke-dasharray: 12 88; }
+.f-node rect { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+.f-node circle { fill: var(--mute); }
+.f-hub circle { fill: var(--ink); }
+.f-hub text { fill: var(--bg); font-size: 20px; letter-spacing: 0.04em; }
+.f-hub .f-ring { fill: none; stroke: var(--accent); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: f-ring 2.6s var(--ease) infinite; }
+.f-frame { fill: var(--bg); stroke: var(--ink); stroke-width: 1.5; }
+.f-page .b { fill: var(--ink); animation: f-build 9s var(--ease) infinite backwards; }
+.f-page .b0 { fill: var(--mute); }
+.f-page .f-photo { fill: color-mix(in oklab, var(--accent) 22%, var(--bg-2)); }
+.f-page .f-cta { fill: var(--accent); }
+.f-page .f-tiles { fill: var(--bg-2); stroke: var(--line); stroke-width: 1.5; }
+.f-page .b1 { animation-delay: 0.45s; }
+.f-page .b2 { animation-delay: 0.9s; }
+.f-page .b3 { animation-delay: 1.35s; }
+.f-page .b4 { animation-delay: 1.8s; }
+.f-real { animation: f-real 9s var(--ease) infinite backwards; }
+@keyframes f-real { 0%, 36% { opacity: 0; } 46%, 78% { opacity: 1; } 86%, 100% { opacity: 0; } }
+@keyframes f-run { to { stroke-dashoffset: 0; } }
+@keyframes f-ring { 0% { transform: scale(1); opacity: 0.9; } 70%, 100% { transform: scale(1.45); opacity: 0; } }
+@keyframes f-build { 0% { opacity: 0; transform: translateY(10px); } 7% { opacity: 1; transform: none; } 78% { opacity: 1; transform: none; } 86%, 100% { opacity: 0; transform: none; } }
+@media (min-width: 980px) {
+  .hero-home { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); }
+  .hero-home .hero-text { display: block; }
+  .hero-home h1 { font-size: clamp(2.75rem, 4.6vw, 4.25rem); }
+  .hero-home p { margin-top: clamp(20px, 3vh, 32px); }
+  .hero-home .cta { margin-top: clamp(28px, 4vh, 40px); }
+  .stage { max-width: none; }
+}
+
 /* Sections */
 .sec { padding-block: clamp(72px, 11vw, 144px); }
 .sec-h { font-size: clamp(1.75rem, 3.4vw, 2.75rem); line-height: 1.1; letter-spacing: -0.028em; max-width: 18em; }
@@ -238,6 +283,10 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .sig.on .pen path { animation: none; }
+  .flow * { animation: none !important; }
+  .f-lines .f-pulse { stroke-dashoffset: 50; }
+  .f-hub .f-ring { opacity: 0; }
+  .f-real { opacity: 1; }
   .js .rv { opacity: 1; transform: none; transition: none; }
   .btn { transition: none; }
   @view-transition { navigation: none; }
