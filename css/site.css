@@ -91,6 +91,7 @@ a { color: inherit; }
 .tabs a { min-height: 38px; padding: 0 16px; border-radius: 999px; position: relative; }
 .tabs a::after { content: ''; position: absolute; inset: -4px 0; }
 .tabs a[aria-current='page'] { background: var(--bg); color: var(--ink); box-shadow: 0 0 0 1px var(--line); view-transition-name: tab; }
+.tabs .short { display: none; }
 .sec-p.side { margin-top: 0; }
 .teaser { margin-top: clamp(40px, 6vw, 72px); }
 .band.contact { padding-block: clamp(72px, 11vw, 144px); }
@@ -226,6 +227,8 @@ a { color: inherit; }
   .nav { font-size: 0.875rem; gap: 2px; }
   .nav-c { display: none !important; }
   .tabs a { padding-inline: 11px; }
+  .tabs .long { display: none; }
+  .tabs .short { display: inline; }
   .theme span { display: none; }
   .theme::before { margin-right: 0; width: 14px; height: 14px; }
   .cta .btn { flex: 1 1 100%; }
