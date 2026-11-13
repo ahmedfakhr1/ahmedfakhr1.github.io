@@ -87,6 +87,13 @@ a { color: inherit; }
 .nav a, .theme { color: var(--mute); text-decoration: none; padding: 12px 8px; min-height: 44px; display: inline-flex; align-items: center; transition: color 0.2s var(--ease); }
 .theme { font: inherit; background: none; border: 0; cursor: pointer; }
 .nav a[aria-current='page'] { color: var(--ink); }
+.tabs { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg-2); outline: 1px solid var(--line); outline-offset: -1px; }
+.tabs a { min-height: 38px; padding: 0 16px; border-radius: 999px; position: relative; }
+.tabs a::after { content: ''; position: absolute; inset: -4px 0; }
+.tabs a[aria-current='page'] { background: var(--bg); color: var(--ink); box-shadow: 0 0 0 1px var(--line); view-transition-name: tab; }
+.sec-p.side { margin-top: 0; }
+.teaser { margin-top: clamp(40px, 6vw, 72px); }
+.band.contact { padding-block: clamp(72px, 11vw, 144px); }
 @media (hover: hover) and (pointer: fine) { .nav a:hover, .theme:hover { color: var(--ink); } }
 .theme::before { content: ''; width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid currentColor; background: linear-gradient(90deg, currentColor 50%, transparent 50%); margin-right: 7px; }
 
@@ -116,6 +123,12 @@ a { color: inherit; }
 
 /* Work */
 .work { padding-bottom: clamp(72px, 11vw, 144px); }
+.work-head { margin-bottom: clamp(40px, 6vw, 72px); }
+.eng { padding-top: clamp(24px, 4vw, 56px); }
+.skills { margin-top: 32px; max-width: 30em; }
+.skills > div { padding-block: 14px; border-top: 1px solid var(--line); }
+.skills dt { font-weight: 500; }
+.skills dd { margin-top: 2px; color: var(--mute); font-size: 0.9375rem; }
 .proj + .proj { margin-top: clamp(88px, 13vw, 176px); }
 .shot { border-radius: var(--r); overflow: hidden; background: var(--bg-2); outline: 1px solid var(--line); outline-offset: -1px; }
 .shot img { width: 100%; }
@@ -210,8 +223,9 @@ a { color: inherit; }
 @media (max-width: 520px) {
   .head .wrap { height: 64px; }
   .sig svg { height: 38px; }
-  .nav { font-size: 0.875rem; gap: 0; }
-  .nav a, .theme { padding-inline: 7px; }
+  .nav { font-size: 0.875rem; gap: 2px; }
+  .nav-c { display: none !important; }
+  .tabs a { padding-inline: 11px; }
   .theme span { display: none; }
   .theme::before { margin-right: 0; width: 14px; height: 14px; }
   .cta .btn { flex: 1 1 100%; }
