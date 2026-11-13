@@ -36,7 +36,7 @@
 <main id="main">
   <header class="case-head wrap">
     <h1>Mosaïque: a phone-first website and live menu for a Korba rooftop restaurant</h1>
-    <p class="lead">Mosaïque had a strong brand, great photos and 19K Instagram followers, but no website. Guests reached the menu through a PDF link in the Instagram bio. I built a bilingual site that opens in about a second on a phone, a menu the staff update from a Google Sheet, and a table QR code that lands straight on it.</p>
+    <p class="lead">Mosaïque had a strong brand, great photos and 19K Instagram followers, but no website. Guests reached the menu through a PDF link in the Instagram bio. I built a bilingual site that opens in about a second on a phone, a menu the staff update themselves, and a table QR code that lands straight on it.</p>
     <dl class="spec">
       <div><dt>Client</dt><dd>Mosaïque, Korba, Heliopolis</dd></div>
       <div><dt>Role</dt><dd>Design, build, hosting setup</dd></div>
@@ -66,7 +66,7 @@
         <ul>
           <li>Home, menu and visit pages in English and Arabic, matched to the brand book.</li>
           <li>Searchable menu of about 140 dishes in 19 sections, with photos and a sticky section bar.</li>
-          <li>Staff edit prices and dishes in a Google Sheet; the site updates on its own.</li>
+          <li>Staff edit prices and dishes themselves; the site updates on its own.</li>
           <li>Three-step table request that sends a ready WhatsApp message.</li>
           <li>Table QR code with the logo in the middle, printable from the menu page.</li>
         </ul>
@@ -93,7 +93,7 @@
     <div class="phones rv">
       <figure><div class="shot phone"><img src="img/p-home.webp" width="780" height="1688" loading="lazy" alt="Home page on a phone"></div><figcaption>Home: a short intro, then booking and the menu one tap away.</figcaption></figure>
       <figure><div class="shot phone"><img src="img/p-menu.webp" width="780" height="1688" loading="lazy" alt="Menu page on a phone with search and section bar"></div><figcaption>Menu: search and a section bar that stays on screen.</figcaption></figure>
-      <figure><div class="shot phone"><img src="img/p-menu2.webp" width="780" height="1688" loading="lazy" alt="Menu list with prices"></div><figcaption>Prices read straight from the staff's Google Sheet.</figcaption></figure>
+      <figure><div class="shot phone"><img src="img/p-menu2.webp" width="780" height="1688" loading="lazy" alt="Menu list with prices"></div><figcaption>Prices come straight from what the staff last published.</figcaption></figure>
       <figure><div class="shot phone"><img src="img/p-qr.webp" width="780" height="1688" loading="lazy" alt="QR code popup with the Mosaïque logo in the centre"></div><figcaption>The table QR code, made on every update, printable as a card.</figcaption></figure>
       <figure><div class="shot phone"><img src="img/p-menu-ar.webp" width="780" height="1688" loading="lazy" alt="The menu in Arabic, right to left"></div><figcaption>Full Arabic, right to left, chosen automatically on Arabic phones.</figcaption></figure>
     </div>
@@ -104,7 +104,7 @@
       <h2 class="sec-h">How it works</h2>
       <div class="split rv">
         <ul class="how">
-          <li><h3>The sheet is the back office</h3><p>Menu, sections, site texts and phone numbers live in one Google Sheet with dropdowns and checks. A scheduled job copies it into the site every 30 minutes.</p></li>
+          <li><h3>One back office</h3><p>Menu, sections, site texts and phone numbers are edited in one place, with dropdowns and checks. A scheduled job publishes the changes to the site.</p></li>
           <li><h3>Mistakes don't reach guests</h3><p>If a price isn't a number or half the menu disappears at once, nothing is published and the site keeps its last good menu.</p></li>
           <li><h3>One place for every setting</h3><p>The address, contact details and credit live in one config file; a build step writes them into every page, the sitemap and the QR code.</p></li>
           <li><h3>Built for weak signal</h3><p>No framework, photos in three sizes in AVIF and WebP, long caching, and an offline copy of the menu after the first visit.</p></li>
@@ -112,13 +112,13 @@
         </ul>
         <figure><div class="shot phone"><img src="img/p-book.webp" width="700" height="1724" loading="lazy" alt="Table request form showing an error under a phone number that is too short"></div><figcaption>The table request catches a wrong number before it reaches the restaurant.</figcaption></figure>
       </div>
-      <p class="stack">HTML, CSS and JavaScript, Cloudflare Workers, Google Sheets, GitHub Actions, a service worker, AVIF and WebP.</p>
+      <p class="stack">HTML, CSS and JavaScript, Cloudflare Workers, GitHub Actions, a service worker, AVIF and WebP.</p>
     </div>
   </section>
 
   <section class="sec wrap contact" id="contact">
     <h2>Want this for your restaurant?</h2>
-    <p class="sec-p">The same setup works for any café or restaurant: your brand, your menu in a sheet you already know how to use, and a site that is fast on every phone.</p>
+    <p class="sec-p">The same setup works for any café or restaurant: your brand, a menu you can edit from your phone, and a site that is fast on every phone.</p>
     <div class="cta">
       <a class="btn" href="https://mosaique-eg.com/" rel="noopener">See the live site</a>
       <a class="btn ghost" href="../../web/#contact">Start a conversation</a>
